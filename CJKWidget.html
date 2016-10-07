@@ -416,6 +416,11 @@
                         width: auto;
                     }
             }
+
+        #CJKWrapper {
+            height: 0px;
+            display: none;
+        }
         </style>
         <meta charset="utf-8">
         <div class="action-wrapper">
@@ -615,23 +620,30 @@
         <script>
             
             function updateLang(data) {
-                var language = window.navigator.userLanguage || window.navigator.language;
+                var language = window.navigator.userLanguage || window.navigator.language || navigator.browserLanguage;
+                
                 // language code from: http://www.metamodpro.com/browser-language-codes
-                if (data.jive.locale == "ja" || data.jive.locale == "ja_JP" || data.jive.locale == "ja_JP_JP_#u-ca-japanese"　|| language == "ja") {
+                if (data.jive.locale == "ja" || data.jive.locale == "ja_JP" || data.jive.locale == "ja_JP_JP_#u-ca-japanese"　|| language == "ja" || language == "ja-JP") {
                     languageText = "日本語";
                     spaceName = "japanese";
                     imgsource = "https://pisquare.osisoft.com/community/image/2130/2.png?a=18104";
+                    $('#CJKWrapper').css({ "height": "57px" });
+                    $('#CJKWrapper').css({ "display": "block" });
                 }
                 else if (data.jive.locale == "zh" || data.jive.locale == "zh_CN" || language == "zh" || language == "zh-hk" || language == "zh-cn" || language == "zh-sg" || language == "zh-tw") {
                     languageText = "中文";
                     spaceName = "chinese";
                     imgsource = "https://pisquare.osisoft.com/community/image/2122/2.png?a=17446";
+                    $('#CJKWrapper').css({ "height": "57px" });
+                    $('#CJKWrapper').css({ "display": "block" });
                 }
                 /*
                 else if (data.jive.locale == "ko" || data.jive.locale == "ko_KR" || language == "ko-kr") {
                     languageText = "한국어";
                     spaceName = "korean";
                     imgsource = "https://pisquare.osisoft.com/community/image/2131/2.png?a=17984";
+                    $('#CJKWrapper').css({ "height": "57px" });
+                    $('#CJKWrapper').css({ "display": "block" });                    
                 } */
                 else {
                     languageText = "";
