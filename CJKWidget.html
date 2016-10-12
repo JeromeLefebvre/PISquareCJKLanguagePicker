@@ -621,9 +621,9 @@
             
             function updateLang(data) {
                 var language = window.navigator.userLanguage || window.navigator.language || navigator.browserLanguage;
-                
+                language = language.toLowerCase();
                 // language code from: http://www.metamodpro.com/browser-language-codes
-                if (data.jive.locale == "ja" || data.jive.locale == "ja_JP" || data.jive.locale == "ja_JP_JP_#u-ca-japanese"　|| language == "ja" || language == "ja-JP") {
+                if (data.jive.locale == "ja" || data.jive.locale == "ja_JP" || data.jive.locale == "ja_JP_JP_#u-ca-japanese"　|| language == "ja" || language == "ja-jp") {
                     languageText = "日本語";
                     spaceName = "japanese";
                     imgsource = "https://pisquare.osisoft.com/community/image/2130/2.png?a=18104";
